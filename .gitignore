@@ -1,0 +1,30 @@
+# Node.js dependencies
+node_modules/
+
+# Package-lock file
+package-lock.json
+
+# Generated files
+npm-debug.log
+yarn-error.log
+*.log
+*.lock
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+ehthumbs.db
+.AppleDouble
+.LSOverride
+Icon
+
+# Environment variables file
+.env
+
+# IDE/editor files
+.vscode/
+.idea/
+*.iml
