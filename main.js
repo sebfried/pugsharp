@@ -2,6 +2,8 @@
 import findConfigFiles from './scripts/findConfigFiles.js';
 import handleConfigFile from './scripts/handleConfigFile.js';
 import runSharp from './scripts/runSharp.js'
+import createPug from './scripts/createPug.js';
+
 
 // Main function
 async function pugsharp() {
@@ -13,7 +15,8 @@ async function pugsharp() {
         const config = await handleConfigFile(configPath);
         // Create the images
         await runSharp(config, configPath);
-
+        // Create the pug files
+        await createPug(config, configPath);
     }
     // All done
     console.log('pugsharp finished.')

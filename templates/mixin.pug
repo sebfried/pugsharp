@@ -1,0 +1,11 @@
+//- templates/mixin.pug
+- var mixinName = "${mixinName}";
+- var formats = ${formats};
+- var sourceSets = "${sourceSets}";
+- var fallbackImage = "${fallbackImage}";
+
+mixin #{mixinName}(altText = '', attributes = {})
+  picture
+    each format in formats
+      source(srcset=sourceSets, type="image/#{format}")
+    img(src=fallbackImage, alt=altText)&attributes(attributes)

@@ -1,26 +1,7 @@
 // runSharp.js
 import sharp from 'sharp';
-import fs from 'fs';
 import path from 'path';
-
-function generateSizes(from, to, step, special = []) {
-    const sizes = [];
-    for (let size = from; size <= to; size += step) {
-        sizes.push(size);
-    }
-    sizes.push(to);
-    return [...new Set(sizes.concat(special))];
-}
-
-function ensureDirectoryExists(directory) {
-    if (!fs.existsSync(directory)) {
-        fs.mkdirSync(directory, { recursive: true });
-    }
-}
-
-function checkImageExists(outputPath) {
-    return !fs.existsSync(outputPath);
-}
+import * as utils from './utils.js';
 
 async function processSizeAndFormat(inputPath, outputPath, size, fmt, formatOptions) {
     let image = sharp(inputPath).resize({ width: size });
@@ -31,18 +12,18 @@ async function processSizeAndFormat(inputPath, outputPath, size, fmt, formatOpti
 
 async function processImageConfig(config, basePath) {
     const { img, format, from, to, step, special } = config;
-    const sizes = generateSizes(from, to, step, special);
+    const sizes = utils.generateSizes(from, to, step, special);
     const inputPath = path.join(basePath, img);
     const outputDir = path.join(basePath, path.basename(img, path.extname(img)));
 
-    ensureDirectoryExists(outputDir);
+    utils.ensureDirectoryExists(outputDir);
 
     for (let size of sizes) {
         for (let fmt of format) {
             const outputFilename = `${path.basename(img, path.extname(img))}-${size}.${fmt}`;
             const outputPath = path.join(outputDir, outputFilename);
             
-            if (checkImageExists(outputPath)) {
+            if (utils.checkImageExists(outputPath)) {
                 const formatOptions = config[`sharp-${fmt}`] || {};
                 await processSizeAndFormat(inputPath, outputPath, size, fmt, formatOptions);
             } else {
@@ -52,13 +33,13 @@ async function processImageConfig(config, basePath) {
     }
 }
 
-async function runSharp(configs, configPath) {
+async function runSharp(config, configPath) {
     const basePath = path.dirname(configPath);
 
-    for (const config of configs) {
-        await processImageConfig(config, basePath);
+    for (const imgConfig of config) {
+        await processImageConfig(imgConfig, basePath);
     }
-    console.log(`All images of ${configPath} have been processed.`);
+    console.log(`All images of ${configPath} have been created.`);
 }
 
 export default runSharp;

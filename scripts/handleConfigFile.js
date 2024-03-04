@@ -51,7 +51,7 @@ function handleConfigFile(userConfigFilePath) {
     // const mergedConfig = mergeConfigs(validDefaultConfig, validUserConfig);
     const mergedConfig = validUserConfig;
 
-    console.log('Config ready: ' + userConfigFilePath);
+    console.log('Config read: ' + userConfigFilePath);
     return mergedConfig;
 }
 
