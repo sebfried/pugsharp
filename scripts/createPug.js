@@ -9,14 +9,15 @@ async function generateMixinContent(config, template) {
   const sizes = utils.generateSizes(from, to, step, special);
   const imgName = path.basename(img, path.extname(img));
 
-  let sourceSets = format.map(format =>
-    sizes.map(size => `${imgName}-${size}.${format} ${size}w`).join(', ')
-  ).join(',\n      ');
+  const sizesAndFormats = format.map(fmt => ({
+    sizes: sizes,
+    format: fmt
+  }));
+
+  const sizesAndFormatsString = JSON.stringify(sizesAndFormats).replace(/"/g, '\'');
 
   let populatedTemplate = template
-    .replace('${mixinName}', mixinName)
-    .replace('${formats}', `['${format.join("', '")}']`)
-    .replace('${sourceSets}', sourceSets);
+    .replace('${sizesAndFormats}', `${sizesAndFormatsString}`);
 
   return populatedTemplate;
 }

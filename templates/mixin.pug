@@ -1,11 +1,9 @@
-//- templates/mixin.pug
-- var mixinName = "${mixinName}";
-- var formats = ${formats};
-- var sourceSets = "${sourceSets}";
-- var fallbackImage = "${fallbackImage}";
+- var sizesAndFormats = ${sizesAndFormats}
 
-mixin #{mixinName}(altText = '', attributes = {})
+mixin img(src, altText = '', attributes = {})
+  - var srcBase = src.replace(/-\d+\.(\w+)$/, '').replace(/\.\w+$/, '')
   picture
-    each format in formats
-      source(srcset=sourceSets, type="image/#{format}")
-    img(src=fallbackImage, alt=altText)&attributes(attributes)
+    each formatObj in sizesAndFormats
+      - var srcset = formatObj.sizes.map(size => `${srcBase}-${size}.${formatObj.format} ${size}w`).join(', ')
+      source(srcset=srcset type=`image/${formatObj.format}`)
+    img(src=src alt=altText)

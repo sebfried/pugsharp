@@ -12,7 +12,8 @@ export function generateSizes(from, to, step, special = []) {
         sizes.push(size);
     }
     sizes.push(to);
-    return [...new Set(sizes.concat(special))];
+    const sortedSizes = [...new Set(sizes.concat(special))].sort((a, b) => a - b);
+    return sortedSizes;
 }
 
 export function ensureDirectoryExists(directory) {
