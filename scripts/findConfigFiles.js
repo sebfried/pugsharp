@@ -15,7 +15,12 @@ async function findConfigFiles() {
 
     try {
         const paths = await fg(pattern, options);
-        console.log('Found config files:', paths);
+        if (paths.length === 0) {
+            console.log(`\nNo ${configFileName} config file found. \n\n-----\nVisit https://www.npmjs.com/package/pugsharp for sample configs!\n---\n`);
+            process.exit(1);
+        } else {
+            console.log('Found config files:', paths);
+        }
         return paths;
     } catch (error) {
         console.error('Error searching for config files:', error);
