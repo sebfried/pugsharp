@@ -25,3 +25,11 @@ export function ensureDirectoryExists(directory) {
 export function checkImageExists(imgPath) {
     return !fs.existsSync(imgPath);
 }
+
+export function ensureArray(input) {
+    if (Array.isArray(input)) {
+        return input;
+    } else if (input) {
+        return [input];
+    }
+}

@@ -6,9 +6,11 @@ const mixinName = "img";
 
 async function generateMixinContent(config, template) {
   const { format, from, to, step, special, "data-src": dataSrcSwitch, lazy  } = config;
-  const sizes = utils.generateSizes(from, to, step, special);
+  const specialSizesArray = utils.ensureArray(special);
+  const sizes = utils.generateSizes(from, to, step, specialSizesArray);
+  const formatArray = utils.ensureArray(format);
 
-  const sizesAndFormats = format.map(fmt => ({
+  const sizesAndFormats = formatArray.map(fmt => ({
     sizes: sizes,
     format: fmt
   }));

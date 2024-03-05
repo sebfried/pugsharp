@@ -30,7 +30,7 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
 [
     {
         "img": "pug.png",
-        "format": ["jpg"],
+        "format": "jpg",
         "from": 100,
         "to": 1200,
         "step": 300
@@ -43,10 +43,11 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
 [
     {
         "img": "pug.png",
-        "format": ["jpg"],
+        "format": "jpg",
         "from": 100,
         "to": 1200,
         "step": 300,
+        "special": 10,
         "sharp-jpeg": {
             "mozjpeg": true,
             "quality": 80
@@ -58,6 +59,7 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
         "from": 300,
         "to": 2000,
         "step": 100,
+        "special": [1, 40],
         "lazy": false,
         "data-src": true,
         "sharp-webp": {
@@ -73,10 +75,11 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
 ```
 ### Config keys
 `"img"`: File name of the image.  
-`"format"`: Target image format array.  
+`"format"`: Target image format(s).  
 `"from"`: Smallest target image size.  
 `"to"`: Largest target image size.  
 `"step"`: Pixel step size between small and large.  
+`"special"`: Additional special image size(s).  
 `"lazy"`: If false, *`loading="lazy"`* won't be applied to the img element. Default is `true`.  
 `"data-src"`: If true, you'll get *`<img data-src="...">`*, instead of *`<img src="...">`*. Same for *`<source srcset>`*.   
 `"sharp-*"`: For detailed format options, see the [sharp format documentation](https://sharp.pixelplumbing.com/api-output#toformat).

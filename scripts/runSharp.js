@@ -12,17 +12,19 @@ async function processSizeAndFormat(inputPath, outputPath, size, fmt, formatOpti
 
 async function processImageConfig(config, basePath) {
     const { img, format, from, to, step, special } = config;
-    const sizes = utils.generateSizes(from, to, step, special);
+    const specialSizesArray = utils.ensureArray(special);
+    const sizes = utils.generateSizes(from, to, step, specialSizesArray);
+    const formatArray = utils.ensureArray(format);
     const inputPath = path.join(basePath, img);
     const outputDir = path.join(basePath, path.basename(img, path.extname(img)));
 
     utils.ensureDirectoryExists(outputDir);
 
     for (let size of sizes) {
-        for (let fmt of format) {
+        for (let fmt of formatArray) {
             const outputFilename = `${path.basename(img, path.extname(img))}-${size}.${fmt}`;
             const outputPath = path.join(outputDir, outputFilename);
-            
+
             if (utils.checkImageExists(outputPath)) {
                 const formatOptions = config[`sharp-${fmt}`] || {};
                 await processSizeAndFormat(inputPath, outputPath, size, fmt, formatOptions);
