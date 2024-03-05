@@ -56,6 +56,7 @@ Define multiple image format and resize options at once.
         "from": 300,
         "to": 2000,
         "step": 100,
+        "data-src": true,
         "sharp-webp": {
             "quality": 80,
             "effort": 5
@@ -73,6 +74,7 @@ Define multiple image format and resize options at once.
 `"from"`: Smallest target image size.  
 `"to"`: Largest target image size.  
 `"step"`: Pixel step size between small and large.  
+`"data-src"`: If true, you'll get *`<img data-src="...">`*, instead of *`<img src>`*. Same for `srcset`.  
 `"sharp-*"`: For detailed format options, see the [sharp format documentation](https://sharp.pixelplumbing.com/api-output#toformat).
 
 ## Pug Mixins

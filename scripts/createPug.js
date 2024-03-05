@@ -5,9 +5,8 @@ import * as utils from './utils.js';
 const mixinName = "img";
 
 async function generateMixinContent(config, template) {
-  const { img, format, from, to, step, special } = config;
+  const { format, from, to, step, special, "data-src": dataSrcSwitch  } = config;
   const sizes = utils.generateSizes(from, to, step, special);
-  const imgName = path.basename(img, path.extname(img));
 
   const sizesAndFormats = format.map(fmt => ({
     sizes: sizes,
@@ -17,7 +16,8 @@ async function generateMixinContent(config, template) {
   const sizesAndFormatsString = JSON.stringify(sizesAndFormats).replace(/"/g, '\'');
 
   let populatedTemplate = template
-    .replace('${sizesAndFormats}', `${sizesAndFormatsString}`);
+    .replace('${sizesAndFormats}', `${sizesAndFormatsString}`)
+    .replace('${dataSrcSwitch}', `${dataSrcSwitch}`);
 
   return populatedTemplate;
 }

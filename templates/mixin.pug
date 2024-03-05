@@ -1,9 +1,20 @@
-- var sizesAndFormats = ${sizesAndFormats}
+- var sizesAndFormats = ${sizesAndFormats} //- [{'sizes':[1000,1150,1200],'format':'jpg'},{'sizes':[1000,1150,1200],'format':'avif'}]
+- var dataSrcSwitch = ${dataSrcSwitch} //- true or false
 
 mixin img(src, altText = '', attributes = {})
   - var srcBase = src.replace(/-\d+\.(\w+)$/, '').replace(/\.\w+$/, '')
   picture
     each formatObj in sizesAndFormats
-      - var srcset = formatObj.sizes.map(size => `${srcBase}-${size}.${formatObj.format} ${size}w`).join(', ')
-      source(srcset=srcset type=`image/${formatObj.format}`)
-    img(src=src alt=altText)
+      - var srcsetContent = formatObj.sizes.map(size => `${srcBase}-${size}.${formatObj.format} ${size}w`).join(', ')
+      if dataSrcSwitch
+        source(data-srcset=srcsetContent type=`image/${formatObj.format}`)
+      else
+        source(srcset=srcsetContent type=`image/${formatObj.format}`)
+    if dataSrcSwitch
+      img(data-src=src alt=altText)
+    else
+      img(src=src alt=altText)
+
+
+//- Example Usage
+//- +img('path/to/image-1200.jpg', 'A descriptive alt text')
