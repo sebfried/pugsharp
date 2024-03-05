@@ -7,21 +7,21 @@
 Batch resize and reformat images for your [Pug](https://www.npmjs.com/package/pug) project.
 
 ## About
-The [pughsarp Node.js module](https://www.npmjs.com/package/pugsharp) is evolving, based on the specifications of the fictional Pug Image Transormer (PIT). For more details, visit [PIT's GitHub Repository](https://github.com/sebfried/pit).
+The [pugsharp Node.js module](https://www.npmjs.com/package/pugsharp) is evolving, based on the specifications of the fictional Pug Image Transormer (PIT). For more details, visit [PIT's GitHub Repository](https://github.com/sebfried/pit).
 
 ## How to use the Module
 If you have not already done so, [download and install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 1. Navigate to your image directory.
-2. Create and configure a `pugsharp.json` config file.
+2. Create a `pugsharp.json` configuration file.
 3. Run `npx pugsharp` in the console.
 
 Watch the magic happen.
 
-## Config Files
-Put a `pugsharp.json` config file in your image directory, right next to the images.
+## Configuration Files
+Put a `pugsharp.json` configuration file in your image directory, right next to the images.
 
-Each image will have it's own directory, based on the image name. That's where the generated images will be. 
+Each image will have its own directory, based on the image name. That's where the generated images will be. 
 
 ### Minimal Configuration
 Below is the minimal required configuration for an image in the `pugsharp.json` file.
@@ -73,7 +73,7 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
     }
 ]
 ```
-### Config keys
+### Configuration Keys
 `"img"`: File name of the image.  
 `"format"`: Target image format(s).  
 `"from"`: Smallest target image size.  
@@ -108,7 +108,7 @@ Here's how the Pug mixin translates into HTML output:
 </picture>
 ```
 
-## Additional information
+## Additional Information
 * The pugsharp module is designed not to overwrite existing directories or images.
 * Only the `pugsharp.pug` files for specified images will be overwritten when you run pugsharp.
 * If you wish to regenerate images, you must delete them manually beforehand.
