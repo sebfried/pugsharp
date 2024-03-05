@@ -88,13 +88,13 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
 As a bonus, pugsharp generates a Pug mixin template for each processed image, further simplifying the integration of responsive images into your Pug projects.
 
 ### How to use the Pug Mixins
-Within the directory of any processed image, you'll find a complementary `.pug` file, containing a ready-to-use mixin. This mixin enables easy integration of the generated images. 
+Within the directory of any processed image, you'll find a complementary `pugsharp.pug` file, containing a ready-to-use mixin. This mixin enables easy integration of the generated images. 
 
-Simply include the `.pug` file and call the mixin, providing the image path and alt text as parameters. 
+Simply include the `pugsharp.pug` file and call the mixin, providing the image path and alt text as parameters. 
 
 ```
 //- Example
-include /img/imagename/imagename.pug
+include /img/imagename/pugsharp.pug
 +img("/img/imagename/imagename-1000.jpg", "pug image")
 ```
 
@@ -107,3 +107,11 @@ Here's how the Pug mixin translates into HTML output:
     <img src="/img/pug/pug-1000.jpg" alt="pug image" loading="lazy">
 </picture>
 ```
+
+## Additional information
+* The pugsharp module is designed not to overwrite existing directories or images.
+* Only the `pugsharp.pug` files for specified images will be overwritten when you run pugsharp.
+* If you wish to regenerate images, you must delete them manually beforehand.
+* Image directories will be created right next to the `pugsharp.json` configuration file.
+* It is recommended to place the configuration file in the same directory as the source images. 
+* If you find a pug, feel free to report it.  

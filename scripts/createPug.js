@@ -29,7 +29,7 @@ async function generateMixinContent(config, template) {
 
 async function saveMixin(mixinContent, config, configPath) {
   const imgName = path.basename(config.img, path.extname(config.img));
-  const outputPath = path.join(path.dirname(configPath), `${imgName}/${imgName}.pug`);
+  const outputPath = path.join(path.dirname(configPath), `${imgName}/pugsharp.pug`);
 
   await fs.writeFile(outputPath, mixinContent);
   console.log(`Mixin generated: ${outputPath}`);
