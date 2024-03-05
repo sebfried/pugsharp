@@ -21,8 +21,11 @@ Watch the magic happen.
 ## Config Files
 Put a `pugsharp.json` config file in your image directory, right next to the images.
 
+Each image will have it's own directory, based on the image name. That's where the generated images will be. 
+
 ### Minimal Configuration
 Below is the minimal required configuration for an image in the `pugsharp.json` file.
+
 ```json
 [
     {
@@ -36,7 +39,6 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
 ```
 
 ### Extended Configuration
-Define multiple image format and resize options at once.
 ```json
 [
     {
@@ -56,6 +58,7 @@ Define multiple image format and resize options at once.
         "from": 300,
         "to": 2000,
         "step": 100,
+        "lazy": false,
         "data-src": true,
         "sharp-webp": {
             "quality": 80,
@@ -74,24 +77,24 @@ Define multiple image format and resize options at once.
 `"from"`: Smallest target image size.  
 `"to"`: Largest target image size.  
 `"step"`: Pixel step size between small and large.  
-`"lazy"`: If false, `loading="lazy"` won't be applied to the image. Default is `true`.  
-`"data-src"`: If true, you'll get *`<img data-src="...">`*, instead of *`<img src="...">`*. Same for `srcset`.  
+`"lazy"`: If false, *`loading="lazy"`* won't be applied to the img element. Default is `true`.  
+`"data-src"`: If true, you'll get *`<img data-src="...">`*, instead of *`<img src="...">`*. Same for *`<source srcset>`*.   
 `"sharp-*"`: For detailed format options, see the [sharp format documentation](https://sharp.pixelplumbing.com/api-output#toformat).
 
 ## Pug Mixins
 As a bonus, pugsharp generates a Pug mixin template for each processed image, further simplifying the integration of responsive images into your Pug projects.
 
 ### How to use the Pug Mixins
-Within the directory of any processed image, you'll discover a `.pug` file, containing a ready-to-use mixin. This mixin enables easy inclusion of responsive images in your templates. 
+Within the directory of any processed image, you'll find a complementary `.pug` file, containing a ready-to-use mixin. This mixin enables easy integration of the generated images. 
 
-To use the mixin, simply include the `.pug` file in your Pug template and then call the mixin, providing the image source and alt text as parameters. 
+Simply include the `.pug` file and call the mixin, providing the image path and alt text as parameters. 
 
 ```
 //- Example
-include /img/pug/pug.pug
-+img("/img/pug/pug-1000.jpg", "pug image")
+include /img/imagename/imagename.pug
++img("/img/imagename/imagename-1000.jpg", "pug image")
 ```
-Ensure the image path used matches one of the images within the same directory as the mixin for seamless integration.
+
 ### Sample HTML Output
 Here's how the Pug mixin translates into HTML output:
 ```html
