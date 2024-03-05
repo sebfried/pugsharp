@@ -1,5 +1,6 @@
-- var sizesAndFormats = ${sizesAndFormats} //- [{'sizes':[1000,1150,1200],'format':'jpg'},{'sizes':[1000,1150,1200],'format':'avif'}]
+- var sizesAndFormats = ${sizesAndFormats} //- Example: [{'sizes':[1000,1150,1200],'format':'jpg'},{'sizes':[1000,1150,1200],'format':'avif'}]
 - var dataSrcSwitch = ${dataSrcSwitch} //- true or false
+- var loadingLazy = ${loadingLazy} //- true or false
 
 mixin img(src, altText = '', attributes = {})
   - var srcBase = src.replace(/-\d+\.(\w+)$/, '').replace(/\.\w+$/, '')
@@ -11,10 +12,16 @@ mixin img(src, altText = '', attributes = {})
       else
         source(srcset=srcsetContent type=`image/${formatObj.format}`)
     if dataSrcSwitch
-      img(data-src=src alt=altText)
+      if loadingLazy
+        img(data-src=src alt=altText loading='lazy')
+      else
+        img(data-src=src alt=altText)
     else
-      img(src=src alt=altText)
+      if loadingLazy
+        img(src=src alt=altText loading='lazy')
+      else
+        img(src=src alt=altText)
 
-
-//- Example Usage
+//- Example usage:
+//- Include this mixin.pug, then:
 //- +img('path/to/image-1200.jpg', 'A descriptive alt text')

@@ -74,7 +74,8 @@ Define multiple image format and resize options at once.
 `"from"`: Smallest target image size.  
 `"to"`: Largest target image size.  
 `"step"`: Pixel step size between small and large.  
-`"data-src"`: If true, you'll get *`<img data-src="...">`*, instead of *`<img src>`*. Same for `srcset`.  
+`"lazy"`: If false, `loading="lazy"` won't be applied to the image. Default is `true`.  
+`"data-src"`: If true, you'll get *`<img data-src="...">`*, instead of *`<img src="...">`*. Same for `srcset`.  
 `"sharp-*"`: For detailed format options, see the [sharp format documentation](https://sharp.pixelplumbing.com/api-output#toformat).
 
 ## Pug Mixins
@@ -97,6 +98,6 @@ Here's how the Pug mixin translates into HTML output:
 <picture>
     <source srcset="/img/pug/pug-1000.jpg 1000w, /img/pug/pug-2000.jpg 2000w" type="image/jpg">
     <source srcset="/img/pug/pug-1000.avif 1000w, /img/pug/pug-2000.avif 2000w" type="image/avif">
-    <img src="/img/pug/pug-1000.jpg" alt="pug image">
+    <img src="/img/pug/pug-1000.jpg" alt="pug image" loading="lazy">
 </picture>
 ```

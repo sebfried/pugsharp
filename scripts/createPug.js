@@ -5,7 +5,7 @@ import * as utils from './utils.js';
 const mixinName = "img";
 
 async function generateMixinContent(config, template) {
-  const { format, from, to, step, special, "data-src": dataSrcSwitch  } = config;
+  const { format, from, to, step, special, "data-src": dataSrcSwitch, lazy  } = config;
   const sizes = utils.generateSizes(from, to, step, special);
 
   const sizesAndFormats = format.map(fmt => ({
@@ -15,9 +15,12 @@ async function generateMixinContent(config, template) {
 
   const sizesAndFormatsString = JSON.stringify(sizesAndFormats).replace(/"/g, '\'');
 
+  const loadingLazy = lazy ?? true;
+
   let populatedTemplate = template
     .replace('${sizesAndFormats}', `${sizesAndFormatsString}`)
-    .replace('${dataSrcSwitch}', `${dataSrcSwitch}`);
+    .replace('${dataSrcSwitch}', `${dataSrcSwitch}`)
+    .replace('${loadingLazy}', `${loadingLazy}`);
 
   return populatedTemplate;
 }
