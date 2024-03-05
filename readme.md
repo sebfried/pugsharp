@@ -21,7 +21,7 @@ Watch the magic happen.
 ## Configuration Files
 Put a `pugsharp.json` configuration file in your image directory, right next to the images.
 
-Each image will have its own directory, based on the image name. That's where the generated images will be. 
+Each source image will have its own directory, based on the image name. That's where the generated images will be. 
 
 ### Minimal Configuration
 Below is the minimal required configuration for an image in the `pugsharp.json` file.
@@ -111,7 +111,7 @@ Here's how the Pug mixin translates into HTML output:
 ## Additional Information
 * The pugsharp module is designed not to overwrite existing directories or images.
 * Only the `pugsharp.pug` files for specified images will be overwritten when you run pugsharp.
-* If you wish to regenerate images, you must delete them manually beforehand.
+* If you wish to regenerate images or directories, you must delete them manually beforehand.
 * Image directories will be created right next to the `pugsharp.json` configuration file.
 * It is recommended to place the configuration file in the same directory as the source images. 
 * If you find a pug, feel free to report it.  

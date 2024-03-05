@@ -1,6 +1,6 @@
 - var sizesAndFormats = ${sizesAndFormats} //- Example: [{'sizes':[1000,1150,1200],'format':'jpg'},{'sizes':[1000,1150,1200],'format':'avif'}]
-- var dataSrcSwitch = ${dataSrcSwitch} //- true or false
-- var loadingLazy = ${loadingLazy} //- true or false
+- var dataSrcSwitch = ${dataSrcSwitch} //- false / true
+- var loadingLazy = ${loadingLazy} //- true / false
 
 mixin img(src, altText = '', attributes = {})
   - var srcBase = src.replace(/-\d+\.(\w+)$/, '').replace(/\.\w+$/, '')
@@ -23,5 +23,5 @@ mixin img(src, altText = '', attributes = {})
         img(src=src alt=altText)
 
 //- Example usage:
-//- Include this mixin.pug, then:
+//- Include this pugsharp.pug, then:
 //- +img('path/to/image-1200.jpg', 'A descriptive alt text')
