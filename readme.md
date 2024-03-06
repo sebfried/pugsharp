@@ -43,7 +43,7 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
 [
     {
         "img": "pug.png",
-        "format": "jpg",
+        "format": "jpeg",
         "from": 100,
         "to": 1200,
         "step": 300,
@@ -88,25 +88,44 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
 As a bonus, pugsharp generates a Pug mixin template for each processed image, further simplifying the integration of responsive images into your Pug projects.
 
 ### How to use the Pug Mixins
-Within the directory of any processed image, you'll find a complementary `pugsharp.pug` file, containing a ready-to-use mixin. This mixin enables easy integration of the generated images. 
+Within the directory of any processed image, you'll find a complementary `pugsharp.pug` file that contains a ready-to-use mixin. This mixin enables easy integration of the generated images. 
 
-Simply include the `pugsharp.pug` file and call the mixin, providing the image path and alt text as parameters. 
+Simply include the `pugsharp.pug` file and call the mixin, providing the image path, alt text and optionally, additional attributes. 
 
+### Basic Pug Mixin Example
+Include the mixin and call it with the image's file path and alternative text: `+img('img source path', 'alt text')`
 ```
-//- Example
-include /img/imagename/pugsharp.pug
-+img("/img/imagename/imagename-1000.jpg", "pug image")
+include /img/pugsharp.pug
++img('/img/img-1000.jpg', 'pug image')
 ```
 
-### Sample HTML Output
+### Basic Sample HTML Output
 Here's how the Pug mixin translates into HTML output:
 ```html
 <picture>
-    <source srcset="/img/pug/pug-1000.jpg 1000w, /img/pug/pug-2000.jpg 2000w" type="image/jpg">
-    <source srcset="/img/pug/pug-1000.avif 1000w, /img/pug/pug-2000.avif 2000w" type="image/avif">
-    <img src="/img/pug/pug-1000.jpg" alt="pug image" loading="lazy">
+    <source srcset="/img/img-1000.jpg 1000w, /img/img-2000.jpg 2000w" type="image/jpg">
+    <source srcset="/img/img-1000.avif 1000w, /img/img-2000.avif 2000w" type="image/avif">
+    <img src="/img/img-1000.jpg" alt="pug image" loading="lazy">
 </picture>
 ```
+
+### Extended Pug Mixin Example
+Include the mixin and call it with additional attributes: `+img('img source path', 'alt text', {attributes})`
+```
+include /img2/pugsharp.pug
++img('/img2/img2-1000.jpg', 'pug image', {sizes:'40vw', class:'paw'})
+```
+
+### Extended Sample HTML Output
+HTML output with additional attributes on the img element:
+```html
+<picture>
+    <source srcset="/img2/img2-1000.jpg 1000w, /img2/img2-2000.jpg 2000w" type="image/jpg">
+    <source srcset="/img2/img2-1000.avif 1000w, /img2/img2-2000.avif 2000w" type="image/avif">
+    <img src="/img2/img2-1000.jpg" alt="pug image" loading="lazy" sizes="40vw" class="paw">
+</picture>
+```
+See the [Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) documentation for more details on image attributes.
 
 ## Additional Information
 * The pugsharp module is designed not to overwrite existing directories or images.

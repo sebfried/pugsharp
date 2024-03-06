@@ -2,7 +2,7 @@
 - var dataSrcSwitch = ${dataSrcSwitch} //- false / true
 - var loadingLazy = ${loadingLazy} //- true / false
 
-mixin img(src, altText = '', attributes = {})
+mixin img(src, altText = '', imgAttributes = {})
   - var srcBase = src.replace(/-\d+\.(\w+)$/, '').replace(/\.\w+$/, '')
   picture
     each formatObj in sizesAndFormats
@@ -13,14 +13,14 @@ mixin img(src, altText = '', attributes = {})
         source(srcset=srcsetContent type=`image/${formatObj.format}`)
     if dataSrcSwitch
       if loadingLazy
-        img(data-src=src alt=altText loading='lazy')
+        img(data-src=src alt=altText loading='lazy')&attributes(imgAttributes)
       else
-        img(data-src=src alt=altText)
+        img(data-src=src alt=altText)&attributes(imgAttributes)
     else
       if loadingLazy
-        img(src=src alt=altText loading='lazy')
+        img(src=src alt=altText loading='lazy')&attributes(imgAttributes)
       else
-        img(src=src alt=altText)
+        img(src=src alt=altText)&attributes(imgAttributes)
 
 //- Example usage:
 //- Include this pugsharp.pug, then:
