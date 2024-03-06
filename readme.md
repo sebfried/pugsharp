@@ -93,36 +93,42 @@ Within the directory of any processed image, you'll find a complementary `pugsha
 Simply include the `pugsharp.pug` file and call the mixin, providing the image path, alt text and optionally, additional attributes. 
 
 ### Basic Pug Mixin Example
-Include the mixin and call it with the image's file path and alternative text: `+img('img source path', 'alt text')`
+Include the mixin and call it with the image's file path and alternative text:  
+`+img('img source path', 'alt text')`
+
+Example:
 ```
-include /img/pugsharp.pug
-+img('/img/img-1000.jpg', 'pug image')
+include /pug/pugsharp.pug
++img('/pug/pug-100.jpg', 'pug image')
 ```
 
 ### Basic Sample HTML Output
 Here's how the Pug mixin translates into HTML output:
 ```html
 <picture>
-    <source srcset="/img/img-1000.jpg 1000w, /img/img-2000.jpg 2000w" type="image/jpg">
-    <source srcset="/img/img-1000.avif 1000w, /img/img-2000.avif 2000w" type="image/avif">
-    <img src="/img/img-1000.jpg" alt="pug image" loading="lazy">
+    <source srcset="/pug/pug-100.jpg 100w, /pug/pug-200.jpg 200w" type="image/jpg">
+    <source srcset="/pug/pug-100.avif 100w, /pug/pug-200.avif 200w" type="image/avif">
+    <img src="/pug/pug-100.jpg" alt="pug image" loading="lazy">
 </picture>
 ```
 
 ### Extended Pug Mixin Example
-Include the mixin and call it with additional attributes: `+img('img source path', 'alt text', {attributes})`
+Include the mixin and call it with additional attributes:  
+`+img('img source path', 'alt text', {attributes})`
+
+Example:
 ```
 include /img2/pugsharp.pug
-+img('/img2/img2-1000.jpg', 'pug image', {sizes:'40vw', class:'paw'})
++img('/img2/img2-200.jpg', 'pug image', {sizes:'40vw', class:'paw'})
 ```
 
 ### Extended Sample HTML Output
 HTML output with additional attributes on the img element:
 ```html
 <picture>
-    <source srcset="/img2/img2-1000.jpg 1000w, /img2/img2-2000.jpg 2000w" type="image/jpg">
-    <source srcset="/img2/img2-1000.avif 1000w, /img2/img2-2000.avif 2000w" type="image/avif">
-    <img src="/img2/img2-1000.jpg" alt="pug image" loading="lazy" sizes="40vw" class="paw">
+    <source srcset="/img2/img2-100.jpg 100w, /img2/img2-200.jpg 200w" type="image/jpg">
+    <source srcset="/img2/img2-100.avif 100w, /img2/img2-200.avif 200w" type="image/avif">
+    <img src="/img2/img2-200.jpg" alt="pug image" loading="lazy" sizes="4vw" class="paw">
 </picture>
 ```
 See the [Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) documentation for more details on image attributes.

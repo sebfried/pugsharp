@@ -1,6 +1,6 @@
 {
     "name": "pugsharp",
-    "version": "0.2.4",
+    "version": "0.2.5",
     "description": "Generate responsive images and additional Pug templates, using sharp image processing and JSON configs.",
     "keywords": [
         "pug",
@@ -18,7 +18,7 @@
     "type": "module",
     "main": "main.js",
     "bin": {
-        "pugsharp": "scripts/cli.js"
+        "pugsharp": "cli.js"
     },
     "scripts": {
         "test": "echo \"No tests! 🚀\""
