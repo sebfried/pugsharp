@@ -1,6 +1,6 @@
 {
     "name": "pugsharp",
-    "version": "0.2.6",
+    "version": "0.2.7",
     "description": "Generate responsive images and additional Pug templates, using sharp image processing and JSON configs.",
     "keywords": [
         "pug",
