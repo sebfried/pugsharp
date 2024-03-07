@@ -55,20 +55,20 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
     },
     {
         "img": "pug2.avif",
-        "format": ["webp","avif"],
+        "format": ["avif","webp"],
         "from": 300,
         "to": 2000,
         "step": 100,
         "special": [1, 40],
         "lazy": false,
         "data-src": true,
-        "sharp-webp": {
-            "quality": 80,
-            "effort": 5
-        },
         "sharp-avif": {
             "quality": 70,
             "effort": 7
+        },
+        "sharp-webp": {
+            "quality": 80,
+            "effort": 5
         }
     }
 ]
@@ -106,8 +106,8 @@ include /pug/pugsharp.pug
 Here's how the Pug mixin translates into HTML output:
 ```html
 <picture>
-    <source srcset="/pug/pug-100.jpg 100w, /pug/pug-200.jpg 200w" type="image/jpg">
     <source srcset="/pug/pug-100.avif 100w, /pug/pug-200.avif 200w" type="image/avif">
+    <source srcset="/pug/pug-100.jpg 100w, /pug/pug-200.jpg 200w" type="image/jpg">
     <img src="/pug/pug-100.jpg" alt="pug image" loading="lazy">
 </picture>
 ```
@@ -119,15 +119,15 @@ Include the mixin and call it with additional attributes:
 Example:
 ```
 include /img2/pugsharp.pug
-+img('/img2/img2-200.jpg', 'pug image', {sizes:'40vw', class:'paw'})
++img('/img2/img2-200.jpg', 'pug image', {sizes:'4vw', class:'paw'})
 ```
 
 ### Extended Sample HTML Output
 HTML output with additional attributes on the img element:
 ```html
 <picture>
-    <source srcset="/img2/img2-100.jpg 100w, /img2/img2-200.jpg 200w" type="image/jpg">
-    <source srcset="/img2/img2-100.avif 100w, /img2/img2-200.avif 200w" type="image/avif">
+    <source srcset="/img2/img2-100.avif 100w, /img2/img2-200.avif 200w" type="image/avif" sizes="4vw">
+    <source srcset="/img2/img2-100.jpg 100w, /img2/img2-200.jpg 200w" type="image/jpg" sizes="4vw">
     <img src="/img2/img2-200.jpg" alt="pug image" loading="lazy" sizes="4vw" class="paw">
 </picture>
 ```
