@@ -4,12 +4,16 @@
 
 ***It's not just [sharp](https://www.npmjs.com/package/sharp), it's pugsharp!***
 
-Batch resize and reformat images for your [Pug](https://www.npmjs.com/package/pug) project.
+Batch resize and reformat images for your [Pug](https://www.npmjs.com/package/pug) project, based on JSON configuration files.
 
-## About
-The [pugsharp Node.js module](https://www.npmjs.com/package/pugsharp) is evolving, based on the specifications of the fictional Pug Image Transformer (PIT). For more details, visit [PIT's GitHub Repository](https://github.com/sebfried/pit).
+## How it works
+For every image listed in the `pugsharp.json` configuration file, pugsharp creates a dedicated directory named after the image. 
 
-## How to use the Module
+Inside the created directory, you'll discover the generated images, along with a `pugsharp.pug` file. This file is a powerful tool for seamlessly integrating the generated images into your project, making it incredibly easy to manage and display your images in a responsive and efficient manner.
+
+The pugsharp module is designed to streamline your image handling process, saving you both time and effort, and making your project development smoother and more efficient.
+
+## How to use it
 If you have not already done so, [download and install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 1. Navigate to your image directory.
@@ -85,7 +89,7 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
 `"sharp-*"`: For detailed format options, see the [sharp format documentation](https://sharp.pixelplumbing.com/api-output#toformat).
 
 ## Pug Mixins
-As a bonus, pugsharp generates a Pug mixin template for each processed image, further simplifying the integration of responsive images into your Pug projects.
+Pugsharp generates a Pug mixin template for each processed image, further simplifying the integration of responsive images into your Pug projects.
 
 ### How to use the Pug Mixins
 Within the directory of any processed image, you'll find a complementary `pugsharp.pug` file that contains a ready-to-use mixin. This mixin enables easy integration of the generated images. 
@@ -145,7 +149,7 @@ See the [Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/do
 * It is recommended to place the configuration file in the same directory as the source images. 
 * If you find a pug, feel free to report it.  
 
-## Support this Project
+## How to support this Project
 Your support, whether through code, feedback, or donations on Ko-Fi, is invaluable to keeping this project thriving!
 
 **On GitHub, your contributions can help in various ways:**
