@@ -1,4 +1,4 @@
-![Pugs](pugs.webp)
+[![Pugs](docs/pugs.webp)](https://github.com/sebfried/pugsharp/)
 
 # pugsharp
 
@@ -142,3 +142,26 @@ See the [Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/do
 * Image directories will be created right next to the `pugsharp.json` configuration file.
 * It is recommended to place the configuration file in the same directory as the source images. 
 * If you find a pug, feel free to report it.  
+
+## Support this Project
+Your support, whether through code, feedback, or donations on Ko-Fi, are invaluable to keeping this project thriving!
+
+**On GitHub, your contributions can help in various ways:**
+
+* Submit a Pull Request: Enhance features, fix bugs, or improve documentation.
+* Report Issues: Found a bug or have a feature request? Let us know!
+* Spread the Word: Star the repository and share it with your network!
+
+**On Ko-Fi, your donations support:**
+
+* Continued development and maintenance of pugsharp.
+* New features and updates.
+* The coffee that fuels late-night coding sessions!
+
+Every bit of support motivates and helps maintain the project's quality and accessibility. 
+
+[Support on Ko-Fi](https://ko-fi.com/pugsharp) | [Contribute on GitHub](https://github.com/sebfried/pugsharp/)
+
+Thank you for your generosity and belief in this project! Let's pug it!
+
+[![Ko-fi](docs/ko-fi.jpeg)](https://ko-fi.com/pugsharp)
