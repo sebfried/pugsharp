@@ -7,7 +7,7 @@
 Batch resize and reformat images for your [Pug](https://www.npmjs.com/package/pug) project.
 
 ## About
-The [pugsharp Node.js module](https://www.npmjs.com/package/pugsharp) is evolving, based on the specifications of the fictional Pug Image Transormer (PIT). For more details, visit [PIT's GitHub Repository](https://github.com/sebfried/pit).
+The [pugsharp Node.js module](https://www.npmjs.com/package/pugsharp) is evolving, based on the specifications of the fictional Pug Image Transformer (PIT). For more details, visit [PIT's GitHub Repository](https://github.com/sebfried/pit).
 
 ## How to use the Module
 If you have not already done so, [download and install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
@@ -30,7 +30,7 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
 [
     {
         "img": "pug.png",
-        "format": "jpg",
+        "format": "jpeg",
         "from": 100,
         "to": 1200,
         "step": 300
@@ -146,7 +146,7 @@ See the [Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/do
 * If you find a pug, feel free to report it.  
 
 ## Support this Project
-Your support, whether through code, feedback, or donations on Ko-Fi, are invaluable to keeping this project thriving!
+Your support, whether through code, feedback, or donations on Ko-Fi, is invaluable to keeping this project thriving!
 
 **On GitHub, your contributions can help in various ways:**
 
