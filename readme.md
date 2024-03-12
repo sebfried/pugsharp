@@ -1,4 +1,4 @@
-[![Pugs](docs/pugs.webp)](https://github.com/sebfried/pugsharp/)
+[![Pugs](https://raw.githubusercontent.com/sebfried/pugsharp/main/docs/pugs.webp)](https://github.com/sebfried/pugsharp/)
 
 # pugsharp
 
@@ -168,4 +168,4 @@ Every bit of support motivates and helps maintain the project's quality and acce
 
 Thank you for your generosity and belief in this project! Let's pug it!
 
-[![Ko-fi](docs/ko-fi.jpeg)](https://ko-fi.com/pugsharp)
+[![Ko-fi](https://raw.githubusercontent.com/sebfried/pugsharp/main/docs/ko-fi.jpeg)](https://ko-fi.com/pugsharp)
