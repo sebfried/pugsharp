@@ -4,7 +4,7 @@
 
 ***It's not just [sharp](https://www.npmjs.com/package/sharp), it's pugsharp!***
 
-Batch resize and reformat images for your [Pug](https://www.npmjs.com/package/pug) project, based on JSON configuration files! Pugsharp is designed to streamline the image handling process, saving both time and effort.
+Batch resize and reformat images for your [Pug](https://www.npmjs.com/package/pug) project, based on JSON configuration files! Pugsharp is a [Node.js module](https://www.npmjs.com/package/pugsharp), designed to streamline the image handling process, saving both time and effort.
 
 ## How it works
 For every image listed in the JSON configuration file, pugsharp creates a dedicated directory named after the image. 
