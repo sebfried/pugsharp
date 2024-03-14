@@ -7,9 +7,9 @@
 Batch resize and reformat images for your [Pug](https://www.npmjs.com/package/pug) project, based on JSON configuration files! Pugsharp is a [Node.js module](https://www.npmjs.com/package/pugsharp), designed to streamline the image handling process, saving both time and effort.
 
 ## How it works
-For every image listed in the JSON configuration file, pugsharp creates a dedicated directory named after the image. 
+For each source image listed in the JSON configuration file, pugsharp creates a dedicated directory named after the image. 
 
-Inside the created directory, you'll discover the generated images, along with a Pug file. This file is a powerful tool for integrating the generated images into your Pug project, making it incredibly easy to manage and display images in a responsive and efficient manner.
+Inside the created directory, you'll find the resized and reformatted images, as well as a Pug file for easy integration into your Pug projects. 
 
 ## How to use it
 If you have not already done so, [download and install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
@@ -77,7 +77,7 @@ Below is the minimal required configuration for an image in the `pugsharp.json` 
 ```
 ### Configuration Keys
 `"img"`: File name of the image.  
-`"format"`: Target image format(s).  
+`"format"`: Target image format(s). Array or string.   
 `"from"`: Smallest target image size.  
 `"to"`: Largest target image size.  
 `"step"`: Pixel step size between small and large.  
